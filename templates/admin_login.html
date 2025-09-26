@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Entrar como administrador</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;display:flex;align-items:center;justify-content:center;height:100vh;background:#f5f7fb}
+    .card{background:white;padding:28px;border-radius:10px;box-shadow:0 6px 24px rgba(16,24,40,.08);width:320px}
+    h1{font-size:18px;margin:0 0 14px}
+    label{display:block;margin-top:10px;font-size:13px}
+    input[type="text"],input[type="password"]{width:100%;padding:8px 10px;margin-top:6px;border:1px solid #dfe3ea;border-radius:6px}
+    .actions{margin-top:16px;display:flex;gap:8px;justify-content:space-between;align-items:center}
+    button{padding:8px 12px;border:none;background:#0b72ff;color:white;border-radius:6px;cursor:pointer}
+    a{font-size:13px;color:#0b72ff;text-decoration:none}
+    .hint{font-size:12px;color:#666;margin-top:10px}
+  </style>
+</head>
+<body>
+  <div class="card" role="main">
+    <h1>Acceso panel de administración</h1>
+
+    <!-- Publica el formulario directamente al login del admin -->
+    <form method="post" action="{% url 'admin:login' %}?next=/admin/">
+      {% csrf_token %}
+      <label for="id_username">Usuario</label>
+      <input type="text" name="username" id="id_username" required autocomplete="username" />
+
+      <label for="id_password">Contraseña</label>
+      <input type="password" name="password" id="id_password" required autocomplete="current-password" />
+
+      <!-- next ya está en la query string; si prefieres, puedes enviarlo en hidden -->
+      <div class="actions">
+        <button type="submit">Entrar</button>
+        <a href="{% url 'home' %}">&larr; Volver</a>
+      </div>
+
+      <div class="hint">
+        Utiliza las credenciales de un superusuario/staff. Si no existe, crea uno con <code>createsuperuser</code>.
+      </div>
+    </form>
+  </div>
+</body>
+</html>

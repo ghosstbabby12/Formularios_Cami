@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Página de Inicio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      padding: 40px;
+      text-align: center;
+    }
+    h1 { color: #333; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 10px 0; }
+    a, button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    a { background: #0b72ff; color: white; }
+    a:hover { background: #084b9d; }
+    .admin-btn {
+      background: #444;
+      color: white;
+    }
+    .admin-btn:hover {
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bienvenido al Taller de Formularios ✅</h1>
+  <ul>
+    <li><a href="/asistencia/">📌 Registrar Asistencia</a></li>
+    <li><a href="/solicitudes/">📌 Registrar Solicitud</a></li>
+  </ul>
+
+  <!-- Botón para entrar como admin -->
+  <a href="/entrar-admin/" class="admin-btn">🔑 Entrar como Admin</a>
+</body>
+</html>
